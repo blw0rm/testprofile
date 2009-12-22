@@ -1,17 +1,16 @@
-from django.conf.urls.defaults import *
+# -*- coding: utf-8 -*-
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.conf.urls.defaults import *
+from django.contrib import admin
+from django.views.generic.list_detail import object_detail
+from profile.views import profile_view
+import registration
+
+admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Example:
-    # (r'^testprofile/', include('testprofile.foo.urls')),
 
-    # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
-    # to INSTALLED_APPS to enable admin documentation:
-    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # (r'^admin/', include(admin.site.urls)),
+    url(r'^$', profile_view),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^accounts/', include('registration.urls')),
 )

@@ -1,0 +1,29 @@
+{% extends "profile/base.html" %}
+{% load i18n %}
+{% block title %}Profile view of user {{ user.username }}{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1>Welcome, {{ user.username }}</h1>(<a href="{% url auth_logout %}?next=/">Exit</a>)
+        {% if profile %}
+        <ul>
+            <li>User name: {{ profile.user }}</li>
+            <li>User biography: {{ profile.biography }}</li>
+            <li>Date of birth: {{ profile.birthday }}</li>
+            <li>DContacts: {{ profile.contacts }}</li>
+        </ul>
+        {% else %}
+        You haven't profile yet. Do you want <a href="">create</a> it?
+        {% endif %}
+    {% else %}
+        <h1>Authenticate yourself, please:</h1>
+        {% if error_message %}
+            <p class="errornote">{{ error_message }}</p>
+        {% endif %}
+        <form action="{% url auth_login %}" method="post">
+            <label for="id_username">{% trans 'Username:' %}</label> <input type="text" name="username" id="id_username" /><br />
+            <label for="id_password">{% trans 'Password:' %}</label> <input type="password" name="password" id="id_password" /><br />
+            <input type="submit" value="{% trans 'Log in' %}" />
+        </form>
+        <h1>or <a href="{% url registration_register %}">register</a></h1>
+    {% endif %}
+{% endblock %}

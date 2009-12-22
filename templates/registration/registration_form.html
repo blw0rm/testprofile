@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+<br />
+<h2 class="entry-title"><a href="{% url registration_register %}" rel="bookmark" title="Permanent link to ">Регистрация</a></h2>
+{% if form.errors %}
+    <div class="errors">
+        <p>Error while submitting form: {{ form.errors }}</p>
+        
+    </div>
+    <br>
+{% endif %}
+<div class="entry-content">
+<p>Заполните поля регистрационной формы:</p>
+<br />
+
+<form action="" method="post">
+    <fieldset>
+	    <legend>Создать новую учётную запись</legend>
+	    <table>
+		    {{ form.as_table }}
+	    </table>
+	    <p><input id='openid_submit' type="submit" name="bsignup" value="Зарегистрироваться"> </p>
+	 </fieldset>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br />
+</form>
+</div>
+{% endblock %}

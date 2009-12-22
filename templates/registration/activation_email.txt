@@ -1,0 +1,6 @@
+Hi,
+
+Thank you for your registration. To activate your account click on the link below :
+
+<a href="http://127.0.0.1:8000/{% url registration_activate activation_key %}">{% url registration_activate activation_key %}</a>.
+
