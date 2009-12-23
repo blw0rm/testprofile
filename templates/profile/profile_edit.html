@@ -1,5 +1,6 @@
 {% extends "profile/base.html" %}
 {% load i18n %}
+{% block extrajs %}{{ form.media }}{% endblock %}
 {% block title %}Profile edit of user {{ user.username }}{% endblock %}
 {% block content %}
     <div class="menu">
