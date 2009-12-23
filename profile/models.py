@@ -6,9 +6,9 @@ from django.contrib.auth.models import User
 
 class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True)
-    birthday = models.DateTimeField(u'Дата рождения')
-    biography = models.TextField(u'Биография')
-    contacts = models.EmailField(u'Адресс электронной почты', help_text='email')
+    birthday = models.DateTimeField(u'Дата рождения', null=True)
+    biography = models.TextField(u'Биография', null=True)
+    #contacts = models.EmailField(u'Адресс электронной почты', null=True)
     
     def __unicode__(self):
-        return self.biography
+        return self.user.username+' profile'

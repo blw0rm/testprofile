@@ -2,17 +2,28 @@
 {% load i18n %}
 {% block title %}Profile view of user {{ user.username }}{% endblock %}
 {% block content %}
+    <div class="menu">
+        {% if user.is_authenticated %}
+            <a href="{% url auth_logout %}?next=/">Exit</a> |
+        {% else %}
+            <a href="{% url registration_register %}">register</a> |
+        {% endif %}
+                     <a href="{% url profile_edit %}">Edit profile</a> |
+    </div><hr>
     {% if user.is_authenticated %}
-        <h1>Welcome, {{ user.username }}</h1>(<a href="{% url auth_logout %}?next=/">Exit</a>)
+        <h1>Welcome, {{ user.username }}</h1>
         {% if profile %}
+        <h2>This is your profile:</h2>
         <ul>
-            <li>User name: {{ profile.user }}</li>
-            <li>User biography: {{ profile.biography }}</li>
-            <li>Date of birth: {{ profile.birthday }}</li>
-            <li>DContacts: {{ profile.contacts }}</li>
+            <li><b>User name:</b> {{ profile.user }}</li>
+            <li><b>First name:</b> {{ user.first_name }}</li>
+            <li><b>Last name:</b> {{ user.last_name }}</li>
+            <li><b>Date of birth:</b> {{ profile.birthday|date:"j F Y H:i" }}</li>
+            <li><b>User biography:</b> {{ profile.biography }}</li>
+            <li><b>Contacts:</b> {{ user.email }}</li>
         </ul>
         {% else %}
-        You haven't profile yet. Do you want <a href="">create</a> it?
+        You haven't profile yet. Do you want <a href="{% url profile_edit %}">create</a> it?
         {% endif %}
     {% else %}
         <h1>Authenticate yourself, please:</h1>

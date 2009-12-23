@@ -1,0 +1,23 @@
+{% extends "profile/base.html" %}
+{% load i18n %}
+{% block title %}Profile edit of user {{ user.username }}{% endblock %}
+{% block content %}
+    <div class="menu">
+        {% if user.is_authenticated %}
+            <a href="{% url auth_logout %}?next=/">Exit</a> |
+        {% else %}
+            <a href="{% url registration_register %}">register</a> |
+        {% endif %}
+                     <a href="/">Main</a> |
+    </div><hr>
+    {% if user.is_authenticated %}
+        <h1>Welcome, {{ user.username }}</h1>
+        <h2>Edit your profile, please:</h2>
+        <form action="{% url profile_edit %}" method="post">
+            {{ form.as_p }}
+            <input type="submit" value="{% trans 'Save' %}" />
+        </form>
+    {% else %}
+        <h1>Authenticate yourself <a href="/">here</a>, please  or <a href="{% url registration_register %}">register</a></h1>
+    {% endif %}
+{% endblock %}
