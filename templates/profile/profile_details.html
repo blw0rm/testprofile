@@ -5,10 +5,10 @@
     <div class="menu">
         {% if user.is_authenticated %}
             <a href="{% url auth_logout %}?next=/">Exit</a> |
+            <a href="{% url profile_edit %}">Edit profile</a> |
         {% else %}
             <a href="{% url registration_register %}">register</a> |
-        {% endif %}
-                     <a href="{% url profile_edit %}">Edit profile</a> |
+        {% endif %}                
     </div><hr>
     {% if user.is_authenticated %}
         <h1>Welcome, {{ user.username }}</h1>

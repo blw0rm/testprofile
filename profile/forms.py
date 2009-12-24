@@ -32,5 +32,9 @@ class UserProfileForm(forms.ModelForm):
         
     class Meta:
         model = UserProfile
+        exclude = ['user',]
         fields = ['first_name', 'last_name', 'birthday', 'biography', 'contacts']
+        fields.reverse()
+        
+        
     
