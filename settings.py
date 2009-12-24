@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 # Django settings for testprofile project.
 import os, sys
-from context_processors import SettingsProcessor
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
@@ -62,15 +61,14 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    #'middleware.log_queries.DebugFooter'
+    'middleware.log_queries.DebugFooter'
 )
-admin_media = SettingsProcessor('ADMIN_MEDIA_PREFIX')
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.auth',
     'django.core.context_processors.request',
     'django.core.context_processors.media',
-    'context_processors.admin_media',
+    'context_processors.context_settings',
     )
 
 ROOT_URLCONF = 'urls'

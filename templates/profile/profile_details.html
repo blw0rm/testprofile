@@ -1,5 +1,6 @@
 {% extends "profile/base.html" %}
 {% load i18n %}
+{% load adminurl %}
 {% block title %}Profile view of user {{ user.username }}{% endblock %}
 {% block content %}
     <div class="menu">
@@ -22,6 +23,7 @@
             <li><b>User biography:</b> {{ profile.biography }}</li>
             <li><b>Contacts:</b> {{ user.email }}</li>
         </ul>
+        <a href="{% admin_url "profile" %}">Edit in admin</a>
         {% else %}
         You haven't profile yet. Do you want <a href="{% url profile_edit %}">create</a> it?
         {% endif %}
