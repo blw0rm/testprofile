@@ -1,0 +1,57 @@
+[     
+     {
+          "pk": 2, 
+          "model": "auth.user", 
+          "fields": {
+               "username": "ivan", 
+               "first_name": "Ivan", 
+               "last_name": "Ivanov", 
+               "is_active": true, 
+               "is_superuser": false, 
+               "is_staff": true, 
+               "last_login": "2009-12-25 15:50:26", 
+               "groups": [], 
+               "user_permissions": [], 
+               "password": "sha1$bde52$ac48cffc64849f734c740ab275fb6fe261a68192", 
+               "email": "ivan@gmail.com", 
+               "date_joined": "2009-12-23 14:10:03"
+          }
+     }, 
+     {
+          "pk": 3, 
+          "model": "auth.user", 
+          "fields": {
+               "username": "petr", 
+               "first_name": "Petr", 
+               "last_name": "Petrov", 
+               "is_active": true, 
+               "is_superuser": false, 
+               "is_staff": false, 
+               "last_login": "2009-12-25 17:51:04", 
+               "groups": [], 
+               "user_permissions": [], 
+               "password": "sha1$b9770$d9d3345da3739c2c14dff8172d602c5190cac1c5", 
+               "email": "petr@gmail.com", 
+               "date_joined": "2009-12-23 14:13:18"
+          }
+     },
+     {
+          "pk": 2, 
+          "model": "profile.userprofile", 
+          "fields": {
+               "birthday": "1987-04-05 00:00:00", 
+               "user": 2, 
+               "biography": "Born in New York City, actor Humphrey Bogart made his film debut in Broadway's 'Like That' (1930). A founder of the Rat Pack super group, Bogart attained stardom with roles in 'High Sierra' (1941), 'The Maltese Falcon' (1941), and 'Casablanca' (1942). During his nearly 30-year career, he appeared in more than 75 feature films."
+          }
+     }, 
+     {
+          "pk": 4, 
+          "model": "profile.userprofile", 
+          "fields": {
+               "birthday": "1980-09-11 02:21:17", 
+               "user": 3, 
+               "biography": "Born in New York City, actor Humphrey Bogart made his film debut in Broadway's 'Like That' (1930). A founder of the Rat Pack super group, Bogart attained stardom with roles in 'High Sierra' (1941), 'The Maltese Falcon' (1941), and 'Casablanca' (1942). During his nearly 30-year career, he appeared in more than 75 feature films."
+          }
+     }
+
+]
