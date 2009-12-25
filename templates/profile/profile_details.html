@@ -23,20 +23,35 @@
             <li><b>User biography:</b> {{ profile.biography }}</li>
             <li><b>Contacts:</b> {{ user.email }}</li>
         </ul>
-        <a href="{% admin_url "profile" %}">Edit in admin</a>
+        <a href="{% admin_url 'profile' %}">Edit in admin</a>
         {% else %}
         You haven't profile yet. Do you want <a href="{% url profile_edit %}">create</a> it?
         {% endif %}
     {% else %}
         <h1>Authenticate yourself, please:</h1>
-        {% if error_message %}
-            <p class="errornote">{{ error_message }}</p>
-        {% endif %}
-        <form action="{% url auth_login %}" method="post">
-            <label for="id_username">{% trans 'Username:' %}</label> <input type="text" name="username" id="id_username" /><br />
-            <label for="id_password">{% trans 'Password:' %}</label> <input type="password" name="password" id="id_password" /><br />
-            <input type="submit" value="{% trans 'Log in' %}" />
+        {% block login_form %}
+            {% if error_message %}
+                <p class="errornote">{{ error_message }}</p>
+            {% endif %}
+        <div style="width:250px;">
+        <form action="{% url auth_login %}?next=/" method="post" id="login-form">
+                    <div class="form-row">
+                        <label for="id_username">{% trans 'Username:' %}</label> <input type="text" name="username" id="id_username" />
+            </div>
+            <div class="form-row">
+                        <label for="id_password">{% trans 'Password:' %}</label> <input type="password" name="password" id="id_password" />
+                        <input type="hidden" name="this_is_the_login_form" value="1" />
+            </div>
+            <div class="submit-row">
+                <label>&nbsp;</label><input type="submit" value="{% trans 'Log in' %}" />
+            </div>
         </form>
-        <h1>or <a href="{% url registration_register %}">register</a></h1>
+        <script type="text/javascript">
+            document.getElementById('id_username').focus()
+        </script>
+    </div>        
+        
+        {% endblock %}
+        <div><h1>or <a href="{% url registration_register %}">register</a></h1></div>
     {% endif %}
 {% endblock %}

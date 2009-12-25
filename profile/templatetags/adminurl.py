@@ -19,7 +19,7 @@ class AdminUrlNode(template.Node):
         self.args = template.Variable(args)
         
     def render(self, context):
-        instance = self.args.resolve(context)#getattr(context, self.args)
+        instance = self.args.resolve(context)
         # Checks if model is registered in admin application
         if instance:
             try:

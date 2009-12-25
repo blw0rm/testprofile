@@ -1,12 +1,11 @@
-{% extends "base.html" %}
+{% extends "profile/profile_details.html" %}
 {% load i18n %}
 
-{% block content %}
-<h2 class="entry-title"><a href="{% url auth_login %}" rel="bookmark" title="Permanent link to ">Вход</a></h2>
+{% block login_form %}
 {% if error_message %}
 <p class="errornote">{{ error_message }}</p>
 {% endif %}
-<div id="content-main">
+<div style="width:250px;">
 <form action="{% url auth_login %}?next=/" method="post" id="login-form">
   <div class="form-row">
     <label for="id_username">{% trans 'Username:' %}</label> <input type="text" name="username" id="id_username" />
