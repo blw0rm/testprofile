@@ -6,13 +6,16 @@ from django.contrib.admin.models import LogEntry
 from django.db.models.signals import post_delete, post_save
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.sessions.models import Session
+from django.db.models import Manager
 
 
 class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True)
-    birthday = models.DateTimeField(u'Date of birth', null=True)
+    birthday = models.DateField(u'Date of birth', null=True)
     biography = models.TextField(u'Biography', null=True)
-    #contacts = models.EmailField(u'Адресс электронной почты', null=True)
+    
+    objects = Manager()
+
     
     def __unicode__(self):
         return self.user.username+' profile'

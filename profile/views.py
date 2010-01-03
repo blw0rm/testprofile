@@ -30,6 +30,13 @@ def edit_profile(request):
         if form.is_valid():
             form.save()
             return redirect('/')
-    form = UserProfileForm(instance=profile)
+    else:
+        form = UserProfileForm(instance=profile, initial={'first_name': request.user.first_name,
+                                                      'last_name': request.user.last_name,
+                                                      'contacts': request.user.email,
+                                                      'birthday': profile.birthday,
+                                                      'biography': profile.biography})
+    print form.errors
     return render_to_response('profile/profile_edit.html', {'form': form,}, RequestContext(request))
+
         

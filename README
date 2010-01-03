@@ -3,7 +3,7 @@ You might use zc.buildout.
 Create profile app (first name, last name, data of birth, biography, contacts)
 Add front page, where you'll show your profile datas. (use fixtures)
 + 2. Add authentication of this page - done in 20 min
-+ 3. Create middleware, that stores all database requests. - done in 30 min
++ 3. Create middleware, that stores all database requests. - done in 30 min --
 + 4. Create template context processor that add django.conf.settings to context - done in 10 min
 + 5. Create a page where you may change your profile - done in 1 hour
 + 6. forms-widgets - assign calendar widget to "date of birth" field. - done in 1 hour

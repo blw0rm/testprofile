@@ -14,10 +14,14 @@
     {% if user.is_authenticated %}
         <h1>Welcome, {{ user.username }}</h1>
         <h2>Edit your profile, please:</h2>
-        <form action="{% url profile_edit %}" method="post">
-            {{ form.as_p }}
-            <input type="submit" value="{% trans 'Save' %}" />
-        </form>
+                <!--{% if form.errors %}
+                <p class="errornote">There are some errors!!!</p>
+                    <p class="errorlist">{{ form.errors }}</p>
+                {% endif %}-->
+                <form action="{% url profile_edit %}" method="post">
+                    {{ form.as_p }}
+                    <input type="submit" value="{% trans 'Save' %}" />
+                </form>
     {% else %}
         <h1>Authenticate yourself <a href="/">here</a>, please  or <a href="{% url registration_register %}">register</a></h1>
     {% endif %}
