@@ -27,7 +27,7 @@ class AdminUrlNode(template.Node):
                 try:
                     admin.site.unregister(model)
                     admin.site.register(model)
-                    return "/admin/%s/%s/%s" % (instance._meta.app_label,
+                    return "/admin/%s/%s/%s/" % (instance._meta.app_label,
                                         instance._meta.module_name,
                                         instance.id)
                 except admin.sites.NotRegistered:

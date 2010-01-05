@@ -96,3 +96,5 @@ try:
     from local_settings import *
 except:
     pass
+
+TEST_PARAM = True

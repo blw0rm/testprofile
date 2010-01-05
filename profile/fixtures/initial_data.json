@@ -11,7 +11,11 @@
                "is_staff": true, 
                "last_login": "2009-12-25 15:50:26", 
                "groups": [], 
-               "user_permissions": [], 
+               "user_permissions": [
+                    25, 
+                    26, 
+                    27
+               ], 
                "password": "sha1$bde52$ac48cffc64849f734c740ab275fb6fe261a68192", 
                "email": "ivan@gmail.com", 
                "date_joined": "2009-12-23 14:10:03"

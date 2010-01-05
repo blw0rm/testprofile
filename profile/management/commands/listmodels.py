@@ -12,11 +12,11 @@ class Command(NoArgsCommand):
     def handle_models(self):
         from django.db import connection
         table2model = lambda table_name: table_name.title().replace('_','').replace(' ','').replace('-','')
-        cursor = connection.cursor()
-        for table_name in connection.introspection.get_table_list(cursor):
+        connection_cursor = connection.cursor()
+        for table_name in connection.introspection.get_table_list(connection_cursor):
             yield "class %s(models.Model)" % table2model(table_name)
-            cursor.execute("SELECT count(*) from %s" % table_name)
-            row_count = cursor.cursor.fetchall()
+            connection_cursor.execute("SELECT count(*) from %s" % table_name)
+            row_count = connection_cursor.fetchall()
             row_count = row_count.pop()
             row_count = int(row_count[0])
             yield "Number of objects: %s" % row_count

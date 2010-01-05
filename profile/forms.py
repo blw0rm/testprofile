@@ -13,6 +13,7 @@ class UserProfileForm(forms.ModelForm):
     def save(self, commit=True):
         self.instance.user.first_name = self.cleaned_data['first_name']
         self.instance.user.last_name = self.cleaned_data['last_name']
+        self.instance.user.email = self.cleaned_data['contacts']
         self.instance.user.save()
         super(UserProfileForm, self).save(commit)
         
