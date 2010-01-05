@@ -11,5 +11,5 @@ Add front page, where you'll show your profile datas. (use fixtures)
          * invert field's order
 ++ 8. template-tags - create template tag, that gets any model object, and renders a link of change view in admin interface ( for example: {% edit_list request.user %}) - Done in  40 min
 ++ 9. commands - create django command that prints all models and object counts. - done in 50 min
-+ 10. signals - create signal handler, that creates a note in database when every model is creating/editing/deleting. - done in 1.3 hour
+++ 10. signals - create signal handler, that creates a note in database when every model is creating/editing/deleting. - done in 1.3 hour
 
